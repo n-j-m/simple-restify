@@ -12,7 +12,4 @@ function init( server ) {
 	server.get( '/health', health );
 }
 
-module.exports = {
-
-	init : init
-};
+module.exports = init;

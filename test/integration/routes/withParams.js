@@ -16,8 +16,5 @@ function init( server, routeOptions ) {
 	server.get( '/withParams', sayHello );
 }
 
-module.exports = {
-
-	init: init
-}
+module.exports = init;
 

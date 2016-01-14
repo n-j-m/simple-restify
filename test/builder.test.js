@@ -3,14 +3,15 @@
 //require
 var expect = require( 'chai' ).expect;
 var Builder = require( '../lib/builder' );
-var path = require( 'app-root-path' ).path;
+var appRoot = require("app-root-path").path;
+var path = require("path");
 
 
 
 describe( 'builder.js', function() {
 
 	describe( 'create object', function(){
-		
+
 		it( 'normal operation', function() {
 
 			var info = Builder
@@ -21,8 +22,8 @@ describe( 'builder.js', function() {
 				'port'          : 8000,
 				'name'          : 'Restify Server',
 				'version'       : '1.0.0',
-				'rootPath'      : path,
-				'routesPath'    : path + '/routes',
+				'rootPath'      : appRoot,
+				'routesPath'    : path.join(appRoot, '/routes'),
 				'routesOptions' : {},
 				'logging'       : true
 			};
@@ -40,18 +41,18 @@ describe( 'builder.js', function() {
 				'version' : '2.0.0',
 				'logging' : false
 			};
-			
+
 			var info = Builder
 							.config( data )
 							.info;
-			
+
 			var res = {
 
 				'port'          : 3000,
 				'name'          : 'moses',
 				'version'       : '2.0.0',
-				'rootPath'      : path,
-				'routesPath'    : path + '/routes',
+				'rootPath'      : appRoot,
+				'routesPath'    : path.join(appRoot , '/routes'),
 				'routesOptions' : {},
 				'logging'       : false
 			};
@@ -74,14 +75,14 @@ describe( 'builder.js', function() {
 							.config( data )
 							.routesOptions( { 'test' : 'test' } )
 							.info;
-			
+
 			var res = {
 
 				'port'          : 3000,
 				'name'          : 'moses',
 				'version'       : '2.0.0',
-				'rootPath'      : path,
-				'routesPath'    : path + '/routes',
+				'rootPath'      : appRoot,
+				'routesPath'    : path.join(appRoot, '/routes'),
 				'routesOptions' : { 'test' : 'test' },
 				'logging'       : false
 			};
