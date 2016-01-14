@@ -11,6 +11,7 @@
   "author": "n-j-m",
   "dependencies": {
     "app-root-path": "^1.0.0",
+    "fs-extra": "^0.26.4",
     "lodash": "^3.10.1",
     "restify": "^3.0.2"
   },
